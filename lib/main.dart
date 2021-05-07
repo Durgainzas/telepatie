@@ -205,18 +205,29 @@ class _MyHomePageState extends State<MyHomePage> {
             Column(
               children: <Widget> [
                 Text(
-                  'Kolik bylo shod?:',
+                  'Kolik bylo shod:',
                   style: Theme.of(context).textTheme.headline4,
                 ),
-                TextField(
-                  controller: _controller,
-                  enabled: inputEnabled,
-                  textAlign: TextAlign.center,
-                  keyboardType: TextInputType.number,
-                  inputFormatters: <TextInputFormatter>[
-                    FilteringTextInputFormatter.digitsOnly
-                  ], // Only numbers can be entered
-                  onChanged: (value) => input = value,
+                Container(
+                  width: 100,
+                  child: TextField(
+                    controller: _controller,
+                    enabled: inputEnabled,
+                    textAlign: TextAlign.center,
+                    keyboardType: TextInputType.number,
+                    inputFormatters: <TextInputFormatter>[
+                      FilteringTextInputFormatter.digitsOnly
+                    ], // Only numbers can be entered
+                    onChanged: (value) => input = value,
+                    decoration: InputDecoration(
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colors.blueAccent,
+                        ),
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                    ),
+                  ),
                 ),
               ]),
             Row( 
